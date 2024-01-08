@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+ 
+<style>
+    body {
+        background: #f8f8f8;
+        height: 100%;
+        margin: 40px 0;
+        padding-left: 300px;
+    }
+ 
+    table,
+    th,
+    td {
+        border: 1px solid rgb(255, 173, 173);
+    }
+ 
+    tr:hover {
+        background-color: #ffd700; /* Gold */
+    }
+ 
+    th {
+        background-color: #6a0572; /* Purple */
+        color: white;
+    }
+ 
+    button {
+        border-radius: 12px;
+        color: #fff; /* White text color */
+        background-color: #4CAF50; /* Green background color */
+        padding: 10px 20px; /* Adjust padding as needed */
+        cursor: pointer;
+        border: none;
+        text-align: 20px;
+        margin-right: 70px;
+    }
+ 
+    button:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+ 
+    /* Add new styles for containers */
+    .form-container {
+        padding: 80px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+        margin-bottom: 20px;
+        width: 300px;
+    }
+ 
+    .form-container h3 {
+        color: black; /* Blue */
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 24px; /* Adjust font size as needed */
+        font-weight: bold;
+    }
+ 
+    .form-container label {
+        font-weight: bold;
+        color: #6a0572; /* Purple */
+        margin-bottom: 5px;
+    }
+ 
+    .form-container input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+ 
+    .form-container button {
+        border-radius: 12px;
+        color: #fff; /* White text color */
+        background-color: #4CAF50; /* Green background color */
+        padding: 10px 20px; /* Adjust padding as needed */
+        cursor: pointer;
+        border: none;
+        text-align: 20px;
+        margin-top: 20px;
+    }
+</style>
+ 
+<body>
+    <form method="POST" action="/emp">
+        {% csrf_token %}
+        <div class="form-container">
+            <h3>Employee Information</h3>
+            <div>
+                <label for="eid">Employee ID:</label>
+                {{ form.eid }}
+            </div>
+            <div>
+                <label for="ename">Employee Name:</label>
+                {{ form.ename }}
+            </div>
+            <div>
+                <label for="eemail">Email Address:</label>
+                {{ form.eemail }}
+            </div>
+            <div>
+                <label for="econtact">Contact Number:</label>
+                {{ form.econtact }}
+            </div>
+            <div class="button-container">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+ 
+</html>
